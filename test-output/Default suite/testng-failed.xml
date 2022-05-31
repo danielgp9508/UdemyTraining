@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="JavaStreams.StreamsSelenium">
+      <class name="JavaCore.ExecuteAbstract">
         <methods>
-          <include name="filteringStream"/>
-          <include name="setUpDriver"/>
+          <include name="executeAbstractClass"/>
         </methods>
-      </class> <!-- JavaStreams.StreamsSelenium -->
+      </class> <!-- JavaCore.ExecuteAbstract -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
