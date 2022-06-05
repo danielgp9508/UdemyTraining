@@ -1,5 +1,7 @@
 package TestNG.DayTest;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Day3 {
@@ -14,8 +16,14 @@ public class Day3 {
 		System.out.println("Web");
 	}
 	
-	@Test(priority = 1)
-	public void APIlogin() {
-		System.out.println("API");
+	@Parameters("parameterValueXML2")
+	@Test(priority = 3)
+	public void APIlogin(String param) {
+		System.out.println("API " + param);
+	}
+	
+	@AfterTest()
+	public void afterTest(){
+		System.out.println("After Test");
 	}
 }

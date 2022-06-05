@@ -1,13 +1,17 @@
 package TestNG.DayTest;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.internal.reflect.Parameter;
+
+
 
 public class Day1 {
 
-	
+	@Parameters({"parameterValueXML","parameterValueXMLSecond"})
 	@Test
-	public void test1() {
-		System.out.println("Hello");
+	public void test1(String parameter, String secondParameter) {
+		System.out.println("Hello " + parameter + " " + secondParameter);
 	}
 	
 	@Test

@@ -9,6 +9,6 @@ public interface VideoGames {
 	}
 	
 	public static void sellVideoGame() {
-		System.out.println("sell VideoGame Interface default");
+		System.out.println("sell VideoGame Interface static");
 	}
 }

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="JavaCore.ExecuteAbstract">
+      <class name="TestNG.DayTest.DataProviderTest">
         <methods>
-          <include name="executeAbstractClass"/>
+          <include name="dataProviderTest2"/>
         </methods>
-      </class> <!-- JavaCore.ExecuteAbstract -->
+      </class> <!-- TestNG.DayTest.DataProviderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

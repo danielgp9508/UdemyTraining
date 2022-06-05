@@ -2,9 +2,14 @@ package JavaStreams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -86,8 +91,9 @@ public class Streams {
 		
 	}
 	
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void streamCollect() {
+		
 		List<String> ls = Stream.of("Anyt", "Angela", "Andres", "Daniel", "Allison", "Don")
 		.filter(value -> value.endsWith("n"))
 		.map(value -> value.toUpperCase())
@@ -99,6 +105,37 @@ public class Streams {
 		System.out.println("");
 		List<Integer> number = Arrays.asList(3, 2, 2, 7, 5, 1, 9, 7);
 		number.stream().distinct().sorted().forEach(value -> System.out.println(value));
+	}
+	
+	@Test(enabled = false)
+	public void arrayStream() {
+		int[] test = {5, 12, 53, 64, 15};
+		ArrayList<Integer> list1 =  (ArrayList<Integer>) Arrays.stream(test).boxed().sorted(Collections.reverseOrder()).collect(Collectors.toList());
+		Arrays.stream(test).boxed().sorted(Collections.reverseOrder()).forEach(value -> System.out.println(value));
+		System.out.println("");
+		list1.stream().filter(value -> value.intValue() > 10).map(value -> value + 10).forEach(value -> System.out.println(value));;
+	}
+	 
+	@Test(enabled = true)
+	public void mapStream() {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		List<EncapsulationExampleClass> listClass = new ArrayList<EncapsulationExampleClass>();
+		listClass.add(new EncapsulationExampleClass(1, "daniel", false));
+		listClass.add(new EncapsulationExampleClass(2, "grajales", true));
+		System.out.println("");
+		listClass.stream().forEach(values -> System.out.println(values.getId()));
+		map.put("daniel", 23);
+		map.put("grajales", 78);
+		map.put("brenda", 56);
+		Iterator<String> it = map.keySet().iterator();
+		while(it.hasNext()) {
+			String key = it.next();
+			System.out.println("Key: "+ key + " Value: " + map.get(key));
+		}
+		System.out.println("");
+		Set<String> list = map.keySet();
+		list.stream().sorted().forEach(values -> System.out.println(map.get(values)));
+		System.out.println(map.keySet() + " " + map.values() + " " + map.entrySet());
 	}
 
 }
